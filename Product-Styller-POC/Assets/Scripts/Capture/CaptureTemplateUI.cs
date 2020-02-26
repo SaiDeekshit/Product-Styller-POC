@@ -63,4 +63,9 @@ public class CaptureTemplateUI : MonoBehaviour
         width360.text = "";
         height360.text = "";
     }
+    public void SetActiveCaptureButtons(){
+        captureButton.SetActive(false);
+        differentRotationButton.SetActive(false);
+        PanelDifferentRotations.SetActive(false);
+    }
 }

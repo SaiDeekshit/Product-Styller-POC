@@ -155,20 +155,22 @@ public class CreateShots : MonoBehaviour
    //Delete Shot from list
    public void DeleteShot()
    {
-
+       if(ShotButtonManager.CurrentRefrenceShotDetail != null){
                 foreach (Transform item in CaptureTemplateUI.Instance.shotsContainer.transform)
                 {
                     if(item.gameObject.GetComponent<RefrenceShotDetails>().shotName.text == ShotButtonManager.CurrentRefrenceShotDetail.shotDetails.shotName)
                     {
-
+                           
                             Destroy(item.gameObject);
                             loadListOfShotDetails.Items.Remove(ShotButtonManager.CurrentRefrenceShotDetail.shotDetails);
-
+                            CaptureTemplateUI.Instance.SetActiveCaptureButtons();
+                            ManageOrbitRoam.Instance.GetBackPreviousMoment();
                             UpdateScreenShotDetails.Instance.RewriteJsonFile();
                             break;
                         
                     }
                 }
+       }
      }
 
    

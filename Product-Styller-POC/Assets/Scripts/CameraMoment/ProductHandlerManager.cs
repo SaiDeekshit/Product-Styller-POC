@@ -93,6 +93,7 @@ public class ProductHandlerManager : MonoBehaviour
             CaptureTemplateUI.Instance.allRotationButtons.SetActive(false);
             CaptureTemplateUI.Instance.differentRotationButton.SetActive(false);
             CaptureTemplateUI.Instance.captureButton.SetActive(false);
+            ManageOrbitRoam.Instance.cameraObject.GetComponent<Camera>().fieldOfView = RotateObject.Instance.maxFOV;
             ManageOrbitRoam.Instance.cameraObject.transform.position = Vector3.zero;
             ManageOrbitRoam.Instance.cameraObject.transform.eulerAngles = Vector3.zero;
             CaptureTemplateUI.Instance.panel360PlayerDisplayCount.SetActive(false);

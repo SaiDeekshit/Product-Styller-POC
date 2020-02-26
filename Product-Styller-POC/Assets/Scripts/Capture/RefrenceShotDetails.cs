@@ -39,13 +39,8 @@ public class RefrenceShotDetails : MonoBehaviour
         CaptureTemplateUI.Instance.panel360PlayerButtons.SetActive(false);
         CaptureTemplateUI.Instance.geryedoutPanelsAtPlay.SetActive(false);
         ManageOrbitRoam.Instance.tiltMode = false;
-            if(ManageOrbitRoam.Instance.CurrentMoment == "orbit")
-            {
-                ManageOrbitRoam.Instance.SetToOrbitMoment();
-            }else if(ManageOrbitRoam.Instance.CurrentMoment == "roam")
-            {
-                ManageOrbitRoam.Instance.SetToRoamMoment();
-            }
+        ManageOrbitRoam.Instance.GetBackPreviousMoment();
+     
     }
     
 

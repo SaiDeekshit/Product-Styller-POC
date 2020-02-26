@@ -86,4 +86,16 @@ public class ManageOrbitRoam : MonoBehaviour
        cameraObject.GetComponent<RotateObject>().enabled = false;
         ProductHandlerManager.Instance.product.GetComponent<RotateCam>().enabled = true;
    }
+   //To set previous moment after unselectshot or delete
+   public void GetBackPreviousMoment(){
+        ManageOrbitRoam.Instance.tiltMode = false;
+        if(ManageOrbitRoam.Instance.CurrentMoment == "orbit")
+            {
+                 
+                ManageOrbitRoam.Instance.SetToOrbitMoment();
+            }else if(ManageOrbitRoam.Instance.CurrentMoment == "roam")
+            {
+                ManageOrbitRoam.Instance.SetToRoamMoment();
+            }
+   }
 }
