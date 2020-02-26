@@ -44,8 +44,11 @@ public class ItemsCategoryUI : MonoBehaviour
     public Text productName,item,model,productFinish,dimension,doorHandling;
     void Start() {
         ItemsCategoryUI.Instance.captureButtonGreyOut.SetActive(true);
+        PopulateItemsFromCSV();
+        EnableFirstCategoryItems();
+    }
 
-
+    void PopulateItemsFromCSV(){
          CsvFileDescription inputFileDecription = new CsvFileDescription
         {
              
@@ -88,7 +91,6 @@ public class ItemsCategoryUI : MonoBehaviour
                             }
                         }
                   }
-    
     }
     //To load image into thumbnail
      void LoadThumbNailItem(Image _image,string _path)
@@ -142,15 +144,15 @@ public class ItemsCategoryUI : MonoBehaviour
         if(findItem.text != "")
         {
             DisableAllItems();
-            EnableOrDisableItems(findItem.text);
-            EnableOrDisableItems2(findItem.text);
+            EnableOrDisableItemsWithCategoryName(findItem.text);
+            EnableOrDisableItemsWithItem(findItem.text);
         }else{
             EnableFirstCategoryItems();
         }
     }
 
-    //For find item onValidate with inputfeild
-    void EnableOrDisableItems(string _inputText)
+    //For find item onValidate with inputfeild with Category name
+    void EnableOrDisableItemsWithCategoryName(string _inputText)
       {
            foreach(Transform item in  itemContainer.transform)
           {
@@ -163,8 +165,8 @@ public class ItemsCategoryUI : MonoBehaviour
             
         } 
       }
-      //For find item onValidate with inputfeild
-    void EnableOrDisableItems2(string _inputText)
+      //For find item onValidate with inputfeild with item number
+    void EnableOrDisableItemsWithItem(string _inputText)
       {
            foreach(Transform item in  itemContainer.transform)
           {
@@ -185,15 +187,17 @@ public class ItemsCategoryUI : MonoBehaviour
       }
        void EnableFirstCategoryItems()
       {
-           foreach(Transform item in  itemContainer.transform)
-          {
-          if(listOfCategories[0] == item.GetComponent<RefrenceItemDetails>().itemDetails.categoryName){
-           item.gameObject.SetActive(true);
-          } else
-          {
-           item.gameObject.SetActive(false); 
+
+          foreach(Transform category in  categoryContainer.transform){
+             
+              if(category.GetComponent<RefrenceCategoryDetails>().itemDetails.categoryName == listOfCategories[0])
+              {
+                  DisableAllItems();
+                  CategorySelectionEvent.RaiseOnCategorySelected(category.GetComponent<RefrenceCategoryDetails>());
+
+              }
           }
-        }
+    
       }
    
 }

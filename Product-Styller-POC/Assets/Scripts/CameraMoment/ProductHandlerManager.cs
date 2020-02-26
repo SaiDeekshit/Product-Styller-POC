@@ -87,7 +87,7 @@ public class ProductHandlerManager : MonoBehaviour
             ItemsCategoryUI.Instance.panelItemsCategory.SetActive(true);
             CreateShots.Instance.loadListOfShotDetails.Items.Clear();
             CreateShotUIManager.Instance.ShotButton();
-             CreateShotUIManager.Instance.SiloCancelButton();
+            CreateShotUIManager.Instance.SiloCancelButton();
             CreateShotUIManager.Instance.New360CancelButton(); 
             CaptureTemplateUI.Instance.PanelDifferentRotations.SetActive(false);
             CaptureTemplateUI.Instance.allRotationButtons.SetActive(false);
@@ -114,24 +114,23 @@ public class ProductHandlerManager : MonoBehaviour
     public void TopRotationButton()
     {
         ReCentreForDifferentRotation();
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.max.y ,0);
         
-        float distance  = Vector3.Distance(ProductHandlerManager.Instance.product.transform.position + ProductHandlerManager.Instance.product.GetComponent<BoxCollider>().center,cameraObject.transform.position);
-        RotateObject.direction = new Vector3(0,0,-distance);
-        LookAtProduct();
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y + RotateObject.distance ,0);
+       
+         ManageOrbitRoam.Instance.cameraObject.transform.eulerAngles = new Vector3(90f,0f,0f);
 
     }
     public void FrontRotationButton()
     {
         ReCentreForDifferentRotation();
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y,RotateObject.distance);
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y,-RotateObject.distance);
         LookAtProduct();
     }
     public void BackRotationButton()
     {
        ReCentreForDifferentRotation();
-       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y,-RotateObject.distance);
-       LookAtProduct();
+       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y,RotateObject.distance);
+        LookAtProduct();
     }
     public void Left90RotationButton()
     {
@@ -154,7 +153,7 @@ public class ProductHandlerManager : MonoBehaviour
     public void Right45RotationButton()
     {
         ReCentreForDifferentRotation();
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(GetCornerValue(),RotateObject.Instance.bounds.center.y,GetCornerValue());
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(GetCornerValue(),RotateObject.Instance.bounds.center.y,-GetCornerValue());
         LookAtProduct();
     }
     //For corner point at 45 degrees

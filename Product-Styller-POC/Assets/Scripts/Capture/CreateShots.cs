@@ -67,6 +67,8 @@ public class CreateShots : MonoBehaviour
               newShotButton.GetComponent<RefrenceShotDetails>().shotDetails = newShot;
               newShotButton.transform.SetParent(CaptureTemplateUI.Instance.shotsContainer.transform);
               CreateShotUIManager.Instance.SiloCancelButton();
+              //To open shots panel after shot creation
+              CreateShotUIManager.Instance.ShotButton();
            }
          }
       }
@@ -96,6 +98,8 @@ public class CreateShots : MonoBehaviour
               newShotButton.transform.SetParent(CaptureTemplateUI.Instance.shotsContainer.transform);
               newShotButton.GetComponent<RefrenceShotDetails>().frameCount.text = "# of shots : " + newShot.frameCount;
               CreateShotUIManager.Instance.New360CancelButton();
+              //To open shots panel after shot creation
+              CreateShotUIManager.Instance.ShotButton();
           }
        }
       }
