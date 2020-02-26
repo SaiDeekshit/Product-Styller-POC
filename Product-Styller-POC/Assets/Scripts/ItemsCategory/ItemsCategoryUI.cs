@@ -78,15 +78,15 @@ public class ItemsCategoryUI : MonoBehaviour
                        .ForEach(item => 
                             { 
                                  ItemDetails newItemDetails = new ItemDetails(item.categoryName,item.productName,item.item,item.model,item.productFinish,item.dimension,item.doorHandling,item.pathForModel,item.pathForThumbNail);
-                                GameObject itemBox = Instantiate(itemPrefab);
-                                itemBox.GetComponent<RefrenceItemDetails>().itemDetails = newItemDetails;
-                                itemBox.transform.SetParent(itemContainer.transform);
+                                GameObject itemButton = Instantiate(itemPrefab);
+                                itemButton.GetComponent<RefrenceItemDetails>().itemDetails = newItemDetails;
+                                itemButton.transform.SetParent(itemContainer.transform);
                                
-                                LoadThumbNailItem(itemBox.GetComponent<RefrenceItemDetails>().selectedImage.GetComponent<Image>(),item.pathForThumbNail);
-                                LoadThumbNailItem(itemBox.GetComponent<RefrenceItemDetails>().unselectedImage.GetComponent<Image>(),item.pathForThumbNail);
+                                LoadThumbNailItem(itemButton.GetComponent<RefrenceItemDetails>().selectedImage.GetComponent<Image>(),item.pathForThumbNail);
+                                LoadThumbNailItem(itemButton.GetComponent<RefrenceItemDetails>().unselectedImage.GetComponent<Image>(),item.pathForThumbNail);
                                 listOfProductNames.Add(item.productName);
                                 CreatingCategories(item.categoryName,newItemDetails);
-                                itemBox.SetActive(false);
+                                itemButton.SetActive(false);
                                 });
                             }
                         }
@@ -159,7 +159,6 @@ public class ItemsCategoryUI : MonoBehaviour
 
              if(item.gameObject.GetComponent<RefrenceItemDetails>().itemDetails.categoryName.Contains(_inputText.ToLower()) || item.gameObject.GetComponent<RefrenceItemDetails>().itemDetails.categoryName.Contains(_inputText.ToUpper()) )
             {
-               Debug.Log("Find Items " + _inputText + " " +item.gameObject.GetComponent<RefrenceItemDetails>().itemDetails.categoryName);
                  item.gameObject.SetActive(true);
             }
             

@@ -32,7 +32,7 @@ public class RotateObject : MonoBehaviour
 
     public float mouseSensitivity;
     //For radial distance of camera and object
-    public static float distance;// = 10.0f;
+    public float distance;// = 10.0f;
     //For loading mouse x and mouse y values
     public float currentX = 0.0f;
     public float currentY = 0.0f;
@@ -51,6 +51,7 @@ public class RotateObject : MonoBehaviour
    public float scaleOfFitObject = 4f;
    public bool cameraRotationX,cameraRotationY;
    public Bounds bounds;
+   public Vector3 beforePosition,afterPosition;
 
    public float inputXValue,inputYValue;
     void Start()
@@ -134,7 +135,9 @@ public class RotateObject : MonoBehaviour
 
                 if(Input.GetAxis("Mouse X") != 0)
                 {
-                      
+            //         currentX = cameraObject.rotation.eulerAngles.y;
+            //   currentX += (Input.GetAxis("Mouse X") * mouseSensitivity );
+            //   inputXValue = (Input.GetAxis("Mouse X")  * mouseSensitivity);  
                     cameraRotationX = true;
                 }else {
                     cameraRotationX = false;
@@ -166,8 +169,10 @@ public class RotateObject : MonoBehaviour
                 }else{
                  rotation = Quaternion.Euler(currentY,0,0);
                 }
-            
+                beforePosition = cameraObject.position;
+               
                 cameraObject.position = (ProductHandlerManager.Instance.product.transform.position + ProductHandlerManager.Instance.product.GetComponent<BoxCollider>().center) + rotation * direction;
+                afterPosition = cameraObject.position;
                
                 cameraObject.LookAt(ProductHandlerManager.Instance.product.transform.position + ProductHandlerManager.Instance.product.GetComponent<BoxCollider>().center);
              }

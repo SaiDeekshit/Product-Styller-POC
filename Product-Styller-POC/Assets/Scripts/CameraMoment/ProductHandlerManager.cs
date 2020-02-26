@@ -31,7 +31,7 @@ public class ProductHandlerManager : MonoBehaviour
     GameObject parentObject;
     public string filePathForAssets;
    
-    
+    Vector3 recentre;
     void Start() {
         parentObject = new GameObject("ProductParent");
     }
@@ -115,7 +115,7 @@ public class ProductHandlerManager : MonoBehaviour
     {
         ReCentreForDifferentRotation();
         
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y + RotateObject.distance ,0);
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(recentre.x,RotateObject.Instance.bounds.center.y + RotateObject.Instance.distance ,recentre.z);
        
          ManageOrbitRoam.Instance.cameraObject.transform.eulerAngles = new Vector3(90f,0f,0f);
 
@@ -123,48 +123,49 @@ public class ProductHandlerManager : MonoBehaviour
     public void FrontRotationButton()
     {
         ReCentreForDifferentRotation();
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y,-RotateObject.distance);
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(recentre.x,RotateObject.Instance.bounds.center.y,(recentre.z - RotateObject.Instance.distance));
         LookAtProduct();
     }
     public void BackRotationButton()
     {
        ReCentreForDifferentRotation();
-       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(0,RotateObject.Instance.bounds.center.y,RotateObject.distance);
+       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(recentre.x,RotateObject.Instance.bounds.center.y,(recentre.z + RotateObject.Instance.distance));
         LookAtProduct();
     }
     public void Left90RotationButton()
     {
        ReCentreForDifferentRotation();
-       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(-RotateObject.distance,RotateObject.Instance.bounds.center.y,0);
+       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3((recentre.x - RotateObject.Instance.distance),RotateObject.Instance.bounds.center.y,recentre.z);
        LookAtProduct();
     }
     public void Right90RotationButton()
     {
        ReCentreForDifferentRotation();
-       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(RotateObject.distance,RotateObject.Instance.bounds.center.y,0);
+       ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3((recentre.x + RotateObject.Instance.distance),RotateObject.Instance.bounds.center.y,recentre.z);
        LookAtProduct();
     }
     public void Left45RotationButton()
     {
         ReCentreForDifferentRotation();
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(-GetCornerValue(),RotateObject.Instance.bounds.center.y,-GetCornerValue());
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3((recentre.x - GetCornerValue()),RotateObject.Instance.bounds.center.y,(recentre.z - GetCornerValue()));
+    
         LookAtProduct();
     }
     public void Right45RotationButton()
     {
         ReCentreForDifferentRotation();
-        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3(GetCornerValue(),RotateObject.Instance.bounds.center.y,-GetCornerValue());
+        ManageOrbitRoam.Instance.cameraObject.transform.position = new Vector3((recentre.x + GetCornerValue()),RotateObject.Instance.bounds.center.y,(recentre.z - GetCornerValue()));
         LookAtProduct();
     }
     //For corner point at 45 degrees
     float GetCornerValue()
     {
-        return (RotateObject.distance / Mathf.Sqrt(2));
+        return (RotateObject.Instance.distance / Mathf.Sqrt(2));
     }
     void ReCentreForDifferentRotation()
     {
-     Vector3 recentre = new Vector3((product.transform.position.x + product.GetComponent<BoxCollider>().center.x),(product.transform.position.y + product.GetComponent<BoxCollider>().center.y),(product.transform.position.z + product.GetComponent<BoxCollider>().center.z));
-     RotateObject.distance  = Vector3.Distance(recentre, ManageOrbitRoam.Instance.cameraObject.transform.position);
+     recentre = new Vector3((product.transform.position.x + product.GetComponent<BoxCollider>().center.x),(product.transform.position.y + product.GetComponent<BoxCollider>().center.y),(product.transform.position.z + product.GetComponent<BoxCollider>().center.z));
+     RotateObject.Instance.distance  = Vector3.Distance(recentre, ManageOrbitRoam.Instance.cameraObject.transform.position);
     }
     void LookAtProduct(){
         Vector3 lookCentre = new Vector3((product.transform.position.x + product.GetComponent<BoxCollider>().center.x),(product.transform.position.y + product.GetComponent<BoxCollider>().center.y),(product.transform.position.z + product.GetComponent<BoxCollider>().center.z));
