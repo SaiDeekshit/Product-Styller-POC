@@ -196,7 +196,7 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.CheckFolderIsCreated
 53a76b487e802d8e6dfcabfc0b04339b Assembly-CSharp.dll:.RefrenceCategoryDetails
-fa828c338a9ef2df1c5968c0c5afbf4a Assembly-CSharp.dll:.RotateCam
+eb18e52ff952045cd7a1f7ed58134858 Assembly-CSharp.dll:.RotateCam
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SignUp
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EmailValidate
@@ -278,7 +278,7 @@ fe10de86e42ce80dc24cf76ac1c87c2a Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
-aa7cbee73fedde70c17d4cd5335930f6 Assembly-CSharp.dll:.RotateObject
+de301799754f4a1dac3a537737f5c491 Assembly-CSharp.dll:.RotateObject
 0077fc8e4fbae67f80e80ebd534de5a0 Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 ff1cfd768b207053e073f8002f937b81 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.BackgroundPlaneBehaviour

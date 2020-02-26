@@ -76,7 +76,6 @@ public class CreateShotUIManager : MonoBehaviour
     //To view shot shot list 
     public void ShotButton()
     {
-        
         CaptureTemplateUI.Instance.openShotList = !CaptureTemplateUI.Instance.openShotList;
         CaptureTemplateUI.Instance.shotListView.SetBool("Shotslist",CaptureTemplateUI.Instance.openShotList);
     }

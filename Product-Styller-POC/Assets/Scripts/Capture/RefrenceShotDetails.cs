@@ -75,6 +75,8 @@ public class RefrenceShotDetails : MonoBehaviour
             }
              if(shotDetails.shotType == "New360")
             {
+              CaptureTemplateUI.Instance.differentRotationButton.SetActive(false);
+              CaptureTemplateUI.Instance.PanelDifferentRotations.SetActive(false);
               ProductHandlerManager.Instance.FrontRotationButton();
               ManageOrbitRoam.Instance.tiltMode = true;
             }

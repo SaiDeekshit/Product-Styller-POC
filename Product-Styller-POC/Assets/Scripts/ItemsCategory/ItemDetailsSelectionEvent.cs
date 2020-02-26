@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemDetailsSelectionEvent 
 {
-     public delegate void OnItemDetailsSelected(RefrenceItemDetails item);
+    public delegate void OnItemDetailsSelected(RefrenceItemDetails item);
     public static event OnItemDetailsSelected onItemDetailsSelected;
 
     

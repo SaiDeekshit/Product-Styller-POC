@@ -15,6 +15,8 @@ public class SignOut : MonoBehaviour
    {
        LoginSignUpUI.Instance.panelLoginAndSignUp.SetActive(true);
        LoginSignUpUI.Instance.enableTabNavigator = true;
+       if( ShotButtonManager.CurrentRefrenceShotDetail != null){
        ShotButtonManager.CurrentRefrenceShotDetail.DeSelectShot();
+       }
    }
 }

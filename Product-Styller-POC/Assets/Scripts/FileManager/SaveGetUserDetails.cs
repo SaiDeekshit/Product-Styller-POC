@@ -70,7 +70,6 @@ public class SaveGetUserDetails : MonoBehaviour
             }
          }
         }
-
         return true;
     }
 }

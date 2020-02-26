@@ -51,9 +51,9 @@ public class RotateObject : MonoBehaviour
    public float scaleOfFitObject = 4f;
    public bool cameraRotationX,cameraRotationY;
    public Bounds bounds;
-   public Vector3 beforePosition,afterPosition;
+ 
 
-   public float inputXValue,inputYValue;
+   
     void Start()
     {
         cameraObject = transform;
@@ -126,18 +126,15 @@ public class RotateObject : MonoBehaviour
           if(Input.GetMouseButton(1)){
               currentX = cameraObject.rotation.eulerAngles.y;
               currentX += (Input.GetAxis("Mouse X") * mouseSensitivity );
-              inputXValue = (Input.GetAxis("Mouse X")  * mouseSensitivity);
+            
                currentY = cameraObject.rotation.eulerAngles.x;
             
               currentY -= (Input.GetAxis("Mouse Y")  * mouseSensitivity);
-              inputYValue = (Input.GetAxis("Mouse Y")  * mouseSensitivity);
+     
               currentY = Mathf.Clamp(currentY,Y_ANGLE_MIN,Y_ANGLE_MAX); 
 
                 if(Input.GetAxis("Mouse X") != 0)
                 {
-            //         currentX = cameraObject.rotation.eulerAngles.y;
-            //   currentX += (Input.GetAxis("Mouse X") * mouseSensitivity );
-            //   inputXValue = (Input.GetAxis("Mouse X")  * mouseSensitivity);  
                     cameraRotationX = true;
                 }else {
                     cameraRotationX = false;
@@ -169,11 +166,9 @@ public class RotateObject : MonoBehaviour
                 }else{
                  rotation = Quaternion.Euler(currentY,0,0);
                 }
-                beforePosition = cameraObject.position;
-               
+
                 cameraObject.position = (ProductHandlerManager.Instance.product.transform.position + ProductHandlerManager.Instance.product.GetComponent<BoxCollider>().center) + rotation * direction;
-                afterPosition = cameraObject.position;
-               
+ 
                 cameraObject.LookAt(ProductHandlerManager.Instance.product.transform.position + ProductHandlerManager.Instance.product.GetComponent<BoxCollider>().center);
              }
         }

@@ -22,12 +22,11 @@ public class RefrenceItemDetails : MonoBehaviour
 
       void ClickOnItem()
       {
-        //   Debug.Log("category " + itemDetails.categoryName);
+       
         ItemDetailsSelectionEvent.RaiseOnSelected(this);
         
       }
       public void OnSelection() {
-        // Debug.Log("Item Selected "+ itemDetails.item);
         unselectedPanel.SetActive(false);
       }
        public void OnDeSelection() {

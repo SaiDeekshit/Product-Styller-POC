@@ -10,7 +10,7 @@ public class RotateCam : MonoBehaviour
    
     //To make camera to looking at object
     public Transform cameraObject;
-    // public Transform product;
+    
 
     public float xRotations,yRotations;
    
@@ -18,15 +18,11 @@ public class RotateCam : MonoBehaviour
     public const float  X_ANGLE_MIN = 0f;
     public const float  X_ANGLE_MAX = 65f;
     public bool cameraRotationX,cameraRotationY;
-    public Vector3 intialPose;
-    public Vector3 eulerAngleOfCam;
+
     
     void Start()
     {
         cameraObject = Camera.main.transform;
-        // product = transform;
-        intialPose = cameraObject.transform.position;
-        eulerAngleOfCam = cameraObject.transform.localEulerAngles;
     }
 
      void Update()

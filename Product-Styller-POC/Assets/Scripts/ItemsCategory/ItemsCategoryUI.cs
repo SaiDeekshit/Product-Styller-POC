@@ -184,7 +184,7 @@ public class ItemsCategoryUI : MonoBehaviour
            item.gameObject.SetActive(false);
           } 
       }
-       void EnableFirstCategoryItems()
+      public void EnableFirstCategoryItems()
       {
 
           foreach(Transform category in  categoryContainer.transform){

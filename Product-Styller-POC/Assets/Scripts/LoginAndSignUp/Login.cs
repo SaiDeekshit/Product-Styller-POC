@@ -15,6 +15,7 @@ public class Login : MonoBehaviour
                       LoginSignUpUI.Instance.ClearAllInputFeilds();
                       LoginSignUpUI.Instance.panelLoginAndSignUp.SetActive(false);
                       LoginSignUpUI.Instance.enableTabNavigator = false;
+                      ItemsCategoryUI.Instance.EnableFirstCategoryItems();
                   }else{
                       LoginSignUpUI.Instance.loginerrorText.text = "Please signup as new user"; 
                   }
