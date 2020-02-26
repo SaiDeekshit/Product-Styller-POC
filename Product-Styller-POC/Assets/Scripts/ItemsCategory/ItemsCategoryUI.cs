@@ -27,7 +27,7 @@ public class ItemsCategoryUI : MonoBehaviour
         _instance = this;
     }
     public GameObject panelItemsCategory;
-    public ListOfItemDetails listOfItemDetails;
+    
     public GameObject itemPrefab;
     public GameObject itemContainer;
 
