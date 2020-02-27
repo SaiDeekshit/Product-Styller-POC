@@ -37,7 +37,7 @@ public class CreateShots : MonoBehaviour
                     GameObject newShotButton = GameObject.Instantiate(CaptureTemplateUI.Instance.ShotButtonPrefab);
                     newShotButton.GetComponent<RefrenceShotDetails>().shotDetails = shots;
                     newShotButton.transform.SetParent(CaptureTemplateUI.Instance.shotsContainer.transform);
-                    if(shots.shotType == "New360")
+                    if(shots.shotType == ShotType.Animation)
                     {
                         newShotButton.GetComponent<RefrenceShotDetails>().frameCount.text = "# of shots : " + shots.frameCount;
                     }

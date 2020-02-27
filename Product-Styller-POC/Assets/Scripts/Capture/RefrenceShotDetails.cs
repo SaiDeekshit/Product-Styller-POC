@@ -53,11 +53,11 @@ public class RefrenceShotDetails : MonoBehaviour
             ProductHandlerManager.Instance.cameraObject.transform.position = shotDetails.cameraPosition;
             RotateObject.Instance.OldPos = ProductHandlerManager.Instance.cameraObject.transform.position;
             ProductHandlerManager.Instance.cameraObject.transform.eulerAngles = new Vector3(shotDetails.cameraRotationX,shotDetails.cameraRotationY,0);
-            if(shotDetails.shotType == "Silo")
+            if(shotDetails.shotType == ShotType.Silo)
             {
             //  Debug.Log("Silo Captured");
             }
-             if(shotDetails.shotType == "New360")
+             if(shotDetails.shotType == ShotType.Animation)
             {
                 Player360SetUp();
                 CaptureTemplateUI.Instance.panel360PlayerButtons.SetActive(true);
@@ -65,11 +65,11 @@ public class RefrenceShotDetails : MonoBehaviour
             
         }else{
             CaptureTemplateUI.Instance.captureButton.SetActive(true);
-            if(shotDetails.shotType == "Silo")
+            if(shotDetails.shotType == ShotType.Silo)
             {
               CaptureTemplateUI.Instance.differentRotationButton.SetActive(true);
             }
-             if(shotDetails.shotType == "New360")
+             if(shotDetails.shotType == ShotType.Animation)
             {
               CaptureTemplateUI.Instance.differentRotationButton.SetActive(false);
               CaptureTemplateUI.Instance.PanelDifferentRotations.SetActive(false);

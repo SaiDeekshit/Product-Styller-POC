@@ -53,7 +53,7 @@ public class Screenshot : MonoBehaviour
          UpdateScreenShotDetails.Instance.UpdateIsCapture(ShotButtonManager.CurrentRefrenceShotDetail.shotDetails);
          UpdateScreenShotDetails.Instance.UpdateThumbNail(fileNameOfScreenShot,ShotButtonManager.CurrentRefrenceShotDetail.thumbNail);   
          ManageOrbitRoam.Instance.ToSetViewMode();
-         if(ShotButtonManager.CurrentRefrenceShotDetail.shotDetails.shotType == "New360")
+         if(ShotButtonManager.CurrentRefrenceShotDetail.shotDetails.shotType == ShotType.Animation)
          {
  
             ProductHandlerManager.Instance.RotateProductInFrames();

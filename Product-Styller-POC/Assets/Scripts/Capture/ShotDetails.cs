@@ -6,7 +6,8 @@ using UnityEngine;
 public class ShotDetails 
 {
     public string productName;
-    public string shotType;
+   
+    public ShotType shotType;
     public string shotName;
     public int renderWidth;
     public int renderHeight;
@@ -23,7 +24,7 @@ public class ShotDetails
     public ShotDetails(string _productName,string _shotName,int _renderWidth,int _renderHeight)
     {
         this.productName = _productName;
-        this.shotType = "Silo";
+        this.shotType = ShotType.Silo;
         this.shotName = _shotName;
         this.renderWidth = _renderWidth;
         this.renderHeight = _renderHeight;
@@ -35,7 +36,7 @@ public class ShotDetails
     public ShotDetails(string _productName,string _shotName,int _renderWidth,int _renderHeight,int _degrees,int _frameCount,Direction.RotationDirection _rotationDirection)
     {
         this.productName = _productName;
-        this.shotType = "New360";
+        this.shotType = ShotType.Animation;
         this.shotName = _shotName;
         this.renderWidth = _renderWidth;
         this.renderHeight = _renderHeight;
@@ -48,4 +49,7 @@ public class ShotDetails
 public class ListOfShotDetails
 {
     public List<ShotDetails> Items;
+}
+public enum ShotType{
+    Silo,Animation
 }
