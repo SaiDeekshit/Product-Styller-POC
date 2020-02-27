@@ -18,30 +18,23 @@ public class ManageOrbitRoam : MonoBehaviour
     {
         _instance = this;
     }
-    //To set current moment orientation in between orbit or roam
-    private  string _currentMoment;
-    public  string CurrentMoment
-    {
-        get
-        {
-            return _currentMoment;
+    
+    private MomentMode _currentMomentMode;
+    public MomentMode CurrentMomentMode{
+        get{
+            return _currentMomentMode;
         }
-        set
-        {
-            if(_currentMoment == "")
-            {
-                _currentMoment = "orbit";
-            }
-            _currentMoment = value;
-          
+        set{
+            _currentMomentMode = value;
         }
     }
+
     public GameObject cameraObject;
 
     public Vector3 cameraIntialPosition;
     public Vector3 cameraIntialEulerAngles;
     
-    // public Slider horizontalMomentSensitivity;
+    
     [Range(0.01f,0.3f)]
     public float MomentSensitivity;
     //To restirct update function
@@ -51,12 +44,12 @@ public class ManageOrbitRoam : MonoBehaviour
   
     void Start()
     {
-       CurrentMoment = "orbit";
+     CurrentMomentMode = MomentMode.Orbit;
     }
     //For orbit button
     public void ToSetOrbit()
     {
-        CurrentMoment = "orbit";
+        CurrentMomentMode = MomentMode.Orbit;
         cameraObject.GetComponent<RotateObject>().FitToScreen();
         SetToOrbitMoment();
       
@@ -64,7 +57,7 @@ public class ManageOrbitRoam : MonoBehaviour
     //For Roam Button
     public void ToSetRoam()
     {
-        CurrentMoment = "roam";
+        CurrentMomentMode = MomentMode.Roam;
        SetToRoamMoment();
     }
 
@@ -89,13 +82,17 @@ public class ManageOrbitRoam : MonoBehaviour
    //To set previous moment after unselectshot or delete
    public void GetBackPreviousMoment(){
         ManageOrbitRoam.Instance.tiltMode = false;
-        if(ManageOrbitRoam.Instance.CurrentMoment == "orbit")
+        if(CurrentMomentMode == MomentMode.Orbit)
             {
                  
                 ManageOrbitRoam.Instance.SetToOrbitMoment();
-            }else if(ManageOrbitRoam.Instance.CurrentMoment == "roam")
+            }else if(CurrentMomentMode == MomentMode.Roam)
             {
                 ManageOrbitRoam.Instance.SetToRoamMoment();
             }
    }
+}
+public enum MomentMode
+{
+    Orbit,Roam
 }
