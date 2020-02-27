@@ -35,10 +35,11 @@ public class RefrenceShotDetails : MonoBehaviour
         selectionImage.SetActive(false);
         CaptureTemplateUI.Instance.captureButton.SetActive(false);
         CaptureTemplateUI.Instance.differentRotationButton.SetActive(false);
+        CaptureTemplateUI.Instance.PanelDifferentRotations.SetActive(false);
         CaptureTemplateUI.Instance.panel360PlayerDisplayCount.SetActive(false);
         CaptureTemplateUI.Instance.panel360PlayerButtons.SetActive(false);
         CaptureTemplateUI.Instance.geryedoutPanelsAtPlay.SetActive(false);
-        ManageOrbitRoam.Instance.tiltMode = false;
+       
         ManageOrbitRoam.Instance.GetBackPreviousMoment();
      
     }

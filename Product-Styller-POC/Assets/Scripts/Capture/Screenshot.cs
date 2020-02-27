@@ -58,6 +58,7 @@ public class Screenshot : MonoBehaviour
  
             ProductHandlerManager.Instance.RotateProductInFrames();
             CaptureTemplateUI.Instance.panel360PlayerDisplayCount.SetActive(true);
+            CaptureTemplateUI.Instance.playButton.SetActive(true);
          }
          yield return new WaitForEndOfFrame();
        

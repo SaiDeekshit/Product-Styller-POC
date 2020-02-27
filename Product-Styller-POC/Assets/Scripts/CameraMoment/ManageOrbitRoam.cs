@@ -42,7 +42,7 @@ public class ManageOrbitRoam : MonoBehaviour
     public Vector3 cameraIntialEulerAngles;
     
     // public Slider horizontalMomentSensitivity;
-    [Range(0.1f,0.8f)]
+    [Range(0.01f,0.3f)]
     public float MomentSensitivity;
     //To restirct update function
     public bool rotateMode = false;

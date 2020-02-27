@@ -1546,7 +1546,7 @@ MonoBehaviour:
   cameraObject: {fileID: 534669902}
   cameraIntialPosition: {x: 0, y: 0, z: 0}
   cameraIntialEulerAngles: {x: 0, y: 0, z: 0}
-  MomentSensitivity: 0.3
+  MomentSensitivity: 0.1
   rotateMode: 0
   tiltMode: 0
 --- !u!4 &121633287
@@ -6143,8 +6143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelItemsCategory: {fileID: 254535371}
-  listOfItemDetails:
-    listOfProducts: []
   itemPrefab: {fileID: 8137743768510663370, guid: 112916d10e27197459e360eab6256e82,
     type: 3}
   itemContainer: {fileID: 1776531834}
